@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
+import jQuery from 'jquery'
 //import { fb } from './firebase'
+
+
+
+
+//window.$ = window.jQuery = jQuery;
+window.$ = window.jQuery = require('jquery')
 
 import 'popper.js';
 import 'bootstrap';
 import './assets/app.scss';
-import jQuery from 'jquery';
-
-window.$ = window.jQuery = jQuery;
 
 Vue.config.productionTip = false
 
