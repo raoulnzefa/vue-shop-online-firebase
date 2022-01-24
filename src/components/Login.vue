@@ -99,7 +99,7 @@ export default {
         register() {
             fb.auth().createUserWithEmailAndPassword(this.email, this.password)
             .then((user) => {
-                $('#entrar').modal('hide')
+                $('#login').modal('hide')
 
                 db.collection('perfils').doc(user.user.uid).set({
                     nome: this.nome
