@@ -123,7 +123,7 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
               <button @click="adicionarProduto()" type="button" class="btn btn-primary" v-if="modal == 'novo'">Salvar Alterações</button>
-              <button @click="updateProduct()" type="button" class="btn btn-primary" v-if="modal == 'editar'">Aplicar Mudanças</button>
+              <button @click="atualizarProduto()" type="button" class="btn btn-primary" v-if="modal == 'editar'">Aplicar Mudanças</button>
             </div>
           </div>
         </div>
@@ -152,6 +152,7 @@ export default {
                 tags: [],
                 imagens: []
             },
+            activeItem: null,
             modal: null,
             tag: null
         }
@@ -186,9 +187,19 @@ export default {
                 })
             }
         },
-        editarProduto() {
+        editarProduto(produto) {
             this.modal = 'editar'
+            this.produto = produto
             $('#product').modal('show')
+        },
+
+        atualizarProduto() {
+            this.$firestore.produtos.doc(this.produto.id).update(this.produto)
+            Toast.fire({
+                type: 'success',
+                title: 'Atualizado com sucesso'
+            })
+            $('product').modal('hide')
         },
 
         deletarProduto() {
@@ -213,6 +224,11 @@ export default {
                 title: 'Produto criado com sucesso'
             })
             $('#produto').modal('hide')
+        },
+
+        addTag(){
+            this.produto.tags.push(this.tag)
+            this.tag = ''
         }
     }
 }
