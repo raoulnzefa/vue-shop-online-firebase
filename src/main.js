@@ -15,7 +15,8 @@ Vue.use(VueFirestore, {
 Vue.use(VueFirestore)
 
 
-
+import Vue2Filters from 'vue2-filters'
+Vue.use(Vue2Filters)
 
 
 
@@ -46,6 +47,9 @@ window.Toast = Toast
 Vue.component('Navbar', require('./components/Navbar.vue').default)
 Vue.component('add-no-carrinho', require('./components/AddNoCarrinho.vue').default);
 Vue.component('produtos-lista', require('./sections/ProdutoLista.vue').default)
+
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
 
 Vue.config.productionTip = false
 
