@@ -66,5 +66,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
+    @media (min-width: 992px) { 
+        .navbar.custom-nav{
+        padding-top:16px;
+        padding-bottom:16px;
+        background-color: #fff !important;
+        }
+   }
 </style>

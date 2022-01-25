@@ -23,7 +23,7 @@
 
 
             <h3 class="d-inline-block">Lista de produtos</h3>
-            <button @click="adicionarNovo" class="btn btn-primary float-right">Adicionar Produto</button>
+            <button @click="adicionarNovo()" class="btn btn-primary float-right">Adicionar Produto</button>
 
             <div class="table-responsive">
               

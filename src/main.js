@@ -44,8 +44,11 @@ const Toast = Swal.mixin({
 
 window.Toast = Toast
 
+import store from './store.js';
+
 Vue.component('Navbar', require('./components/Navbar.vue').default)
-Vue.component('add-no-carrinho', require('./components/AddNoCarrinho.vue').default);
+Vue.component('add-no-carrinho', require('./components/AddNoCarrinho.vue').default)
+Vue.component('mini-carrinho', require('./components/MiniCarrinho.vue').default)
 Vue.component('produtos-lista', require('./sections/ProdutoLista.vue').default)
 
 import VueCarousel from 'vue-carousel';
@@ -59,6 +62,7 @@ fb.auth().onAuthStateChanged(function(usuario) {
     if (!app) {
         new Vue({
             router,
+            store,
             render: h => h(App)
         }).$mount('#app')
         console.log(usuario);
