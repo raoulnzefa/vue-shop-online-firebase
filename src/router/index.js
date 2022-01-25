@@ -2,7 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
 import Admin from '../views/Admin.vue'
-// import VisaoGeral from "../views/VisaoGeral.vue"
+import Visaogeral from '../views/Visaogeral.vue'
+import Produtos from '../views/Produtos.vue'
+
+import { fb } from '../firebase'
 
 Vue.use(Router)
 
@@ -22,15 +25,39 @@ const router = new Router({
             path: '/admin',
             name: 'admin',
             component: Admin,
+            //meta: {
+            //    requiresAuth: true
+            //},
             children: [
+
                 {
+
                     path: 'visaogeral',
-                    name: 'visaogeral',
-                    component: 'VisaoGeral'
+                    name: 'Visaogeral',
+                    component: Visaogeral
+                },
+
+                {
+                    path: 'produtos',
+                    name: 'produtos',
+                    component: Produtos
                 }
             ]
+
         }
     ]
+})
+router.beforeEach((to, from, next) => {
+    const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
+    const currentUser = fb.auth().currentUser
+
+    if (requiresAuth && !currentUser) {
+        next('/')
+    } else if (requiresAuth && currentUser) {
+        next()
+    } else {
+        next()
+    }
 })
 
 export default router
