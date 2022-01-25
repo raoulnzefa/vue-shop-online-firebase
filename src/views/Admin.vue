@@ -112,6 +112,16 @@ export default {
             // $('.page-wrapper').toggleClass('toggled')
             $(".page-wrapper").toggleClass("toggled")
         },
+
+        sair() {
+            fb.auth().signOut()
+            .then(() => {
+                this.$router.replace('/')
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        },
         created() {
         let usuario = fb.auth().currentUser
         this.email = usuario.email
