@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import jQuery from 'jquery'
+//import jQuery from 'jquery'
 //import { fb } from './firebase'
 
 
 
 
 //window.$ = window.jQuery = jQuery;
-window.$ = window.jQuery = require('jquery')
+//window.$ = window.jQuery = require('jquery')
+global.jQuery = require('jquery');
+var $ = global.jQuery;
+window.$ = $;
 
 import 'popper.js';
 import 'bootstrap';
