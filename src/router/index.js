@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
 import Admin from '../views/Admin.vue'
+import VisaoGeral from "../views/VisaoGeral.vue"
 
 Vue.use(Router)
 
@@ -20,7 +21,14 @@ const router = new Router({
         {
             path: '/admin',
             name: 'admin',
-            component: Admin
+            component: Admin,
+            children: [
+                {
+                    path: 'visaogeral',
+                    name: 'visaogeral',
+                    component: 'VisaoGeral'
+                }
+            ]
         }
     ]
 })

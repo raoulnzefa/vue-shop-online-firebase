@@ -99,6 +99,7 @@
 <script>
 import {fb} from '../firebase'
 import $ from 'jquery'
+// import Hero from "@/components/Hero.vue"
 export default {
     name: 'Admin',
     data() {
@@ -106,6 +107,9 @@ export default {
             nome: null,
             email: null
         }
+    },
+    components: {
+        // Hero
     },
     methods: {
         fecharMenu() {
