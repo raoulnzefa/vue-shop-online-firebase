@@ -21,7 +21,7 @@
                           </div>
                            
                             <add-no-carrinho
-                                :imagem="getImage(produto.imagens)"
+                                :imagem="buscarImagem(produto.imagens)"
                                 :p-id="produto.id"
                                 :preco="produto.preco"
                                 :nome="produto.nome">
@@ -37,8 +37,25 @@
 </template>
 
 <script>
+import {db} from '../firebase'
 export default {
-    name: 'Produtos-lista'
+    name: 'Produtos-lista',
+
+    data() {
+        return {
+            produtos: []
+        }
+    },
+    methods: {
+        buscarImagem(imagens) {
+            imagens[0]
+        }
+    },
+    firestore() {
+        return {
+            produtos: db.collection('produtos')
+        }
+    }
 }
 </script>
 
