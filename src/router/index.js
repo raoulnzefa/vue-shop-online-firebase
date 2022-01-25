@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import Admin from '../views/Admin.vue'
 import Visaogeral from '../views/Visaogeral.vue'
 import Produtos from '../views/Produtos.vue'
-
+import Perfil from '../views/Perfil.vue'
 import { fb } from '../firebase'
 
 Vue.use(Router)
@@ -41,6 +41,11 @@ const router = new Router({
                     path: 'produtos',
                     name: 'produtos',
                     component: Produtos
+                },
+                {
+                    path: 'perfil',
+                    name: 'perfil',
+                    component: Perfil
                 }
             ]
 

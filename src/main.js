@@ -30,6 +30,7 @@ import 'bootstrap';
 import './assets/app.scss'
 
 import Swal from 'sweetalert2'
+import { fb } from './firebase'
 
 window.Swal = Swal
 
@@ -44,9 +45,14 @@ window.Toast = Toast
 
 Vue.config.productionTip = false
 
+let app = ''
 
-
-new Vue({
-    router,
-    render: h => h(App)
-}).$mount('#app')
+fb.auth().onAuthStateChanged(function(usuario) {
+    if (!app) {
+        new Vue({
+            router,
+            render: h => h(App)
+        }).$mount('#app')
+        console.log(usuario);
+    }
+})
