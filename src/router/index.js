@@ -5,6 +5,7 @@ import Admin from '../views/Admin.vue'
 import Visaogeral from '../views/Visaogeral.vue'
 import Produtos from '../views/Produtos.vue'
 import Perfil from '../views/Perfil.vue'
+import Pedidos from '../views/Pedidos.vue'
 import { fb } from '../firebase'
 
 Vue.use(Router)
@@ -46,6 +47,11 @@ const router = new Router({
                     path: 'perfil',
                     name: 'perfil',
                     component: Perfil
+                },
+                {
+                    path: 'pedidos',
+                    name: 'pedidos',
+                    component: Pedidos
                 }
             ]
 
