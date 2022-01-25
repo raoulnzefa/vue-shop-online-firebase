@@ -110,10 +110,10 @@
                     </div>
 
                     <div class="form-group d-flex">
-                      <div class="p-1" v-for="(image, index) in produto.imagens" :key="image.id">
+                      <div class="p-1" v-for="(imagem, index) in produto.imagens" :key="imagem.id">
                           <div class="img-wrapp">
-                              <img :src="image" alt="" width="80px">
-                              <span class="delete-img" @click="deleteImage(image,index)">X</span>
+                              <img :src="imagem" alt="" width="80px">
+                              <span class="delete-img" @click="deleteImagem(imagem,index)">X</span>
                           </div>
                       </div>
                     </div>
@@ -137,6 +137,7 @@ import { fb, db} from '../firebase'
 import $ from 'jquery'
 import Toast from 'sweetalert2'
 import Swal from 'sweetalert2'
+
 //import { snapshot } from "firebase/firestore"
 export default {
     name: 'Produtos',
@@ -247,6 +248,18 @@ export default {
         addTag(){
             this.produto.tags.push(this.tag)
             this.tag = ''
+        },
+        deleteImagem(img, index) {
+            let imagem = fb.storage().refFromURL(img)
+
+            this.produto.imagens.splice(index, 1)
+
+            imagem.delete().then(function() {
+                console.log('Imagem deletada');
+            }).catch(function(error) {
+                console.log('um erro ocorreu');
+                console.log(error);
+            })
         }
     }
 }
