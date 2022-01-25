@@ -133,8 +133,10 @@
 
 <script>
 import { VueEditor } from "vue2-editor"
-import { db} from '../firebase'
+import { fb, db} from '../firebase'
 import $ from 'jquery'
+import Toast from 'sweetalert2'
+//import { snapshot } from "firebase/firestore"
 export default {
     name: 'Produtos',
     components: {
@@ -166,8 +168,23 @@ export default {
             this.redefinir()
             $('#product').modal('show')
         },
-        enviarImagem() {
+        enviarImagem(e) {
+            if (e.target.files[0]) {
+                let arquivo = e.target.files[0]
+                var storageRef = fb.storage().ref('produtos/' + Math.random() + '_' + arquivo.nome)
+                let enviarTarefa = storageRef.put(arquivo)
 
+                enviarTarefa.on('state_changed', () => {
+
+                }, (error) => {
+                    console.log(error);
+                    
+                }, () => {
+                    enviarTarefa.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                        this.produto.imagens.push(downloadURL)
+                    })
+                })
+            }
         },
         editarProduto() {
             this.modal = 'editar'
@@ -191,10 +208,10 @@ export default {
         adicionarProduto() {
             this.$firestore.produtos.add(this.produto)
 
-            //Toast.fire({
-            //    type: 'success',
-            //    title: 'Produto criado com sucesso'
-            //})
+            Toast.fire({
+                type: 'success',
+                title: 'Produto criado com sucesso'
+            })
             $('#produto').modal('hide')
         }
     }
