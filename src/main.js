@@ -43,6 +43,9 @@ const Toast = Swal.mixin({
 
 window.Toast = Toast
 
+Vue.component('Navbar', require('./components/Navbar.vue').default)
+Vue.component('produtos-lista', require('./sections/ProdutoLista.vue').default)
+
 Vue.config.productionTip = false
 
 let app = ''
