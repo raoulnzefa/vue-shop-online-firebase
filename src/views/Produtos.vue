@@ -136,6 +136,7 @@ import { VueEditor } from "vue2-editor"
 import { fb, db} from '../firebase'
 import $ from 'jquery'
 import Toast from 'sweetalert2'
+import Swal from 'sweetalert2'
 //import { snapshot } from "firebase/firestore"
 export default {
     name: 'Produtos',
@@ -202,8 +203,25 @@ export default {
             $('product').modal('hide')
         },
 
-        deletarProduto() {
+        deletarProduto(doc) {
+            Swal.fire({
+                title: 'Tem certeza?',
+                text: 'Você não será capaz de reverter isso!',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, exclua!'
+            }).then((result) => {
+                if (result.value) {
+                    this.$firestore.produtos.doc(doc.id).delete()
 
+                    Toast.fire({
+                        type: 'success',
+                        title: 'Apagado com sucesso'
+                    })
+                }
+            })
         },
 
         redefinir() {

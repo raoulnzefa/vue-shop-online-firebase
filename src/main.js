@@ -31,9 +31,9 @@ import './assets/app.scss'
 
 import Swal from 'sweetalert2'
 
-window.Swal = Swal;
+window.Swal = Swal
 
-export const Toast = Swal.mixin({
+const Toast = Swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
