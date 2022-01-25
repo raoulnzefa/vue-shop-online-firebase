@@ -15,7 +15,7 @@ window.$ = $;
 
 import 'popper.js';
 import 'bootstrap';
-import './assets/app.scss';
+// import './assets/app.scss';
 
 Vue.config.productionTip = false
 

@@ -28,7 +28,7 @@
                   <input type="password"  v-model="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary" >Entrar</button>
+                  <button class="btn btn-primary" @click="entrar">Entrar</button>
                 </div>
               </div>
               <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="form-group">
-                  <button class="btn btn-primary" >
+                  <button class="btn btn-primary" @click="cadastrar">
                     Cadastrar
                   </button>
                 </div>
@@ -63,6 +63,7 @@
 
 <script>
 import { fb, db } from '../firebase'
+import $ from 'jquery'
 export default {
     name: 'Login',
     props: {
@@ -78,10 +79,12 @@ export default {
     },
     methods: {
 
-        login() {
+        entrar() {
             fb.auth().signInWithEmailAndPassword(this.email, this.password)
             .then(() => {
                 $('#login').modal('hide');
+                console.log("Usuário entrou");
+                this.$router.replace('admin')
             })
             .catch(function(error) {
                 var erroCodigo = error.code
@@ -96,7 +99,7 @@ export default {
             })
         },
 
-        register() {
+        cadastrar() {
             fb.auth().createUserWithEmailAndPassword(this.email, this.password)
             .then((user) => {
                 $('#login').modal('hide')
