@@ -26,9 +26,9 @@ const router = new Router({
             path: '/admin',
             name: 'admin',
             component: Admin,
-            //meta: {
-            //    requiresAuth: true
-            //},
+            meta: {
+                requiresAuth: true
+            },
             children: [
 
                 {
