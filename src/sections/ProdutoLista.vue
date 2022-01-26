@@ -48,7 +48,7 @@ export default {
     },
     methods: {
         buscarImagem(imagens) {
-            imagens[0]
+            return imagens[0]
         }
     },
     firestore() {

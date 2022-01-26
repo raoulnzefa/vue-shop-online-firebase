@@ -21,6 +21,7 @@ export default new Vuex.Store({
     mutations: {
         addNoCarrinho(state, item) {
             let encontrado = state.carrinho.find(produto => produto.produtoId == item.produtoId)
+                //console.log(item);
 
             if (encontrado) {
                 encontrado.produtoQuantidade++

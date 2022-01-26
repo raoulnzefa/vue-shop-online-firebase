@@ -29,7 +29,6 @@ export default {
         addNoCarrinho() {
             $('#miniCart').modal('show')
             this.$store.commit('addNoCarrinho', this.item)
-            console.log("Botão adicionar carrinho");
         }
     }
 }
