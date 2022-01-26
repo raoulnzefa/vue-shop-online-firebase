@@ -9,11 +9,17 @@
             <img src="/img/svg/product.svg" alt="" width="400">
           </div>
           <div class="col-md-6">
-            <h3>Learn More About us</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quaerat voluptate iusto? Nihil voluptas vitae veritatis magnam reprehenderit, reiciendis ex? Libero quasi natus veniam voluptatum, voluptas exercitationem ratione consectetur et!
-            </p>
-             <button class="btn custom-btn btn-outline-primary mr-4">Browse Products</button>
+            <h3>Veja nossos trabalhos</h3>
+            <p> mais projetos em https://github.com/diegotpereira </p>
+               <p>
+                - Java 
+                - Spring
+                - Javascript
+                - Vue.js
+                - Angular
+                - Android
+                </p>
+             <button class="btn custom-btn btn-outline-primary mr-4" onclick="location.href='https://github.com/diegotpereira';">GITHUB</button>
           </div>
         </div>
       </div>

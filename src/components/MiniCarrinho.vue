@@ -6,7 +6,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Minha Sacola</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Meu Carrinho</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -21,7 +21,7 @@
                           <span class='float-right' @click="$store.commit('removerDoCarrinho',item)">X</span>
                         </h5>
                         <p class="mt-0">{{item.produtoPreco | currency}}</p>
-                        <p class="mt-0">Quantity : {{item.produtoQuantidade }}</p>
+                        <p class="mt-0">Quantidade : {{item.produtoQuantidade }}</p>
                       </div>
                     </li>
 
@@ -29,7 +29,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue comprando</button>
-                <button type="button" class="btn btn-primary" @click="conferir">Confirme</button>
+                <button type="button" class="btn btn-primary" @click="conferir">Finalizar</button>
               </div>
             </div>
           </div>
