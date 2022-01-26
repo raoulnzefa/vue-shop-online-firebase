@@ -8,8 +8,8 @@
                   Vue Loja para desenvolvedores
                 </h1>
                 <p>
-                  App MarketPlace Vue.js com Uso do Google Firebase
-                  LocalStorage, com função de pagamento.
+                  Aplicativo Web de comércio eletrônico com Vuejs e Firebase, 
+                  com função de pagemento e usando LocalStorage.
                 </p>
                 <div class="hero-btn mt-5">
                     <button class="btn custom-btn btn-info mr-4">Explorar</button>
