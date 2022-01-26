@@ -18,7 +18,7 @@
                       <div class="media-body">
                         <h5 class="mt-0">{{item.produtoNome}}
 
-                          <span class='float-right' @click="$store.commit('removeFromCart',item)">X</span>
+                          <span class='float-right' @click="$store.commit('removerDoCarrinho',item)">X</span>
                         </h5>
                         <p class="mt-0">{{item.produtoPreco | currency}}</p>
                         <p class="mt-0">Quantity : {{item.produtoQuantidade }}</p>
@@ -47,7 +47,7 @@ export default {
     methods: {
         conferir() {
             $('#miniCart').modal('hide')
-            this.$router.push('/confirme')
+            this.$router.push('/concluir')
         }
     }
 }

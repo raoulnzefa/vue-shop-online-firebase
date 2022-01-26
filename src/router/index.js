@@ -54,7 +54,12 @@ const router = new Router({
                     component: Pedidos
                 }
             ]
-
+        },
+        {
+            path: '/concluir',
+            name: 'concluir',
+            component: () =>
+                import ( /* webpackChunkName: "about" */ "../views/Concluir.vue")
         }
     ]
 })
