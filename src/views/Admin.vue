@@ -99,13 +99,14 @@
 <script>
 import {fb} from '../firebase'
 import $ from 'jquery'
+//import Hero from "@/components/Hero.vue";
 // import Hero from "@/components/Hero.vue"
 export default {
     name: 'Admin',
     data() {
         return{
             nome: null,
-            email: null
+            email: null,
         }
     },
     components: {
@@ -125,12 +126,12 @@ export default {
             .catch((err) => {
                 console.log(err);
             })
-        },
-        created() {
+        }
+    },
+      created() {
         let usuario = fb.auth().currentUser
         this.email = usuario.email
 
-    }
     }
 }
 </script>
